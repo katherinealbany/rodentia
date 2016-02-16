@@ -1,5 +1,7 @@
 package main
 
+import "github.com/katherinealbany/rodentia/logger"
+
 func main() {
-   log()
+   logger.Log()
 }
