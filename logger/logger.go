@@ -2,6 +2,11 @@ package logger
 
 import "fmt"
 
-func Log() {
-	fmt.Println("logging!")
+
+type Logger interface {
+	Log()
+}
+
+func Log(level int, message string) {
+	fmt.Println(message)
 }
