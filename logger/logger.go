@@ -2,7 +2,6 @@ package logger
 
 import "fmt"
 
-
 type Logger interface {
 	Log()
 }
