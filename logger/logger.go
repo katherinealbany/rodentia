@@ -2,8 +2,7 @@ package logger
 
 import (
 	"fmt"
-	"runtime"
-	"runtime/debug"
+	"os"
 	"strconv"
 	"time"
 )
@@ -44,8 +43,7 @@ func Error(message string) {
 func Fatal(message string) {
 	if Level >= 5 {
 		fmt.Println(timestamp(), since(), "[FATAL]", message)
-		debug.PrintStack()
-		runtime.Goexit()
+		os.Exit(1)
 	}
 }
 
