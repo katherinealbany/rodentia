@@ -38,7 +38,6 @@ func Warn(message string) {
 func Error(message string) {
 	if Level >= 3 {
 		fmt.Println(timestamp(), since(), "[ERROR]", message)
-		debug.PrintStack()
 	}
 }
 
