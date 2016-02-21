@@ -7,7 +7,6 @@ import (
 
 var (
 	Level int
-
 	start time.Time
 )
 
