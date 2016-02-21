@@ -48,6 +48,6 @@ func timestamp() string {
 	return "[" + t.Format("15:04:05.000") + "]"
 }
 
-func since() (timestamp string) {
+func since() string {
 	return "[" + time.Since(start).String() + "]"
 }
