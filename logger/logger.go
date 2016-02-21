@@ -5,9 +5,11 @@ import (
 	"time"
 )
 
-var Level int
+var (
+	Level int
 
-var start time.Time
+	start time.Time
+)
 
 func init() {
 	start = time.Now()
