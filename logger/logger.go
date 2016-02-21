@@ -43,7 +43,7 @@ func Fatal(message string) {
 	}
 }
 
-func timestamp() (timestamp string) {
+func timestamp() timestamp string {
 	t := time.Now()
 	return "[" + t.Format("15:04:05.000") + "]"
 }
