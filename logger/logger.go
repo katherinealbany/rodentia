@@ -2,6 +2,7 @@ package logger
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 )
 
@@ -50,5 +51,6 @@ func timestamp() string {
 }
 
 func since() string {
-	return "[" + time.Since(start).String() + "]"
+	ms := int64(time.Since(start) / time.Millisecond)
+	return "[" + strconv.FormatInt(ms, 10) + "]"
 }
