@@ -1,35 +1,43 @@
 package logger
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 var Level int
 
 func Debug(message string) {
 	if Level >= 0 {
-		fmt.Println("[DEBUG]", message)
+		fmt.Println(timestamp(), "[DEBUG]", message)
 	}
 }
 
 func Info(message string) {
 	if Level >= 1 {
-		fmt.Println("[INFO ]", message)
+		fmt.Println(timestamp(), "[INFO ]", message)
 	}
 }
 
 func Warn(message string) {
 	if Level >= 2 {
-		fmt.Println("[WARN ]", message)
+		fmt.Println(timestamp(), "[WARN ]", message)
 	}
 }
 
 func Error(message string) {
 	if Level >= 3 {
-		fmt.Println("[ERROR]", message)
+		fmt.Println(timestamp(), "[ERROR]", message)
 	}
 }
 
 func Fatal(message string) {
 	if Level >= 5 {
-		fmt.Println("[FATAL]", message)
+		fmt.Println(timestamp(), "[FATAL]", message)
 	}
+}
+
+func timestamp() (timestamp string) {
+	t := time.Now()
+	return "[" + string(t.String()) + "]"
 }
