@@ -2,9 +2,10 @@ package logger
 
 import (
 	"fmt"
+	"runtime"
+	"runtime/debug"
 	"strconv"
 	"time"
-	"runtime/debug"
 )
 
 var (
@@ -37,12 +38,15 @@ func Warn(message string) {
 func Error(message string) {
 	if Level >= 3 {
 		fmt.Println(timestamp(), since(), "[ERROR]", message)
+		debug.PrintStack()
 	}
 }
 
 func Fatal(message string) {
 	if Level >= 5 {
 		fmt.Println(timestamp(), since(), "[FATAL]", message)
+		debug.PrintStack()
+		runtime.Goexit()
 	}
 }
 
