@@ -5,13 +5,15 @@ import (
 	"github.com/katherinealbany/rodentia/mediation"
 )
 
+var log = logger.New("main")
+
 func init() {
 	logger.Level = 6
 	logger.Name = "main"
 }
 
 func main() {
-	logger.Info("Begin")
+	logger.Info(log, "Begin")
 	mediation.Read()
-	logger.Info("End")
+	logger.Info(log, "End")
 }

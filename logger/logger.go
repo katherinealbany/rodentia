@@ -7,6 +7,11 @@ import (
 	"time"
 )
 
+type Logger struct {
+	Level uint8
+	Name  string
+}
+
 var (
 	Level uint8
 	Name  string
@@ -17,37 +22,44 @@ func init() {
 	start = time.Now()
 }
 
-func Debug(message string) {
+func New(name string) *Logger {
+	return &Logger{
+		Name:  "main",
+		Level: 6,
+	}
+}
+
+func Debug(logger *Logger, message string) {
 	if Level >= 0 {
 		fmt.Println(timestamp(), since(), "[DEBUG]", name(), message)
 	}
 }
 
-func Info(message string) {
+func Info(logger *Logger, message string) {
 	if Level >= 1 {
 		fmt.Println(timestamp(), since(), "[INFO ]", name(), message)
 	}
 }
 
-func Warn(message string) {
+func Warn(logger *Logger, message string) {
 	if Level >= 2 {
 		fmt.Println(timestamp(), since(), "[WARN ]", name(), message)
 	}
 }
 
-func Error(message string) {
+func Error(logger *Logger, message string) {
 	if Level >= 3 {
 		fmt.Println(timestamp(), since(), "[ERROR]", name(), message)
 	}
 }
 
-func Panic(message string) {
+func Panic(logger *Logger, message string) {
 	if Level >= 5 {
 		fmt.Println(timestamp(), since(), "[PANIC]", name(), message)
 	}
 }
 
-func Fatal(message string) {
+func Fatal(logger *Logger, message string) {
 	if Level >= 5 {
 		fmt.Println(timestamp(), since(), "[FATAL]", name(), message)
 		os.Exit(1)

@@ -4,6 +4,8 @@ import (
 	"github.com/katherinealbany/rodentia/logger"
 )
 
+var log = logger.New("mediation")
+
 func Read() {
-	logger.Info("Reading ...")
+	logger.Info(log, "Reading ...")
 }
