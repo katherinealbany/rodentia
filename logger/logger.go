@@ -9,6 +9,7 @@ import (
 
 var (
 	Level uint8
+	Name string
 	start time.Time
 )
 
