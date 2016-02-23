@@ -31,13 +31,13 @@ func New(name string) *Logger {
 
 func Debug(logger *Logger, message string) {
 	if Level >= 0 {
-		fmt.Println(timestamp(), since(), "[DEBUG]", name(), message)
+		fmt.Println(timestamp(), since(), "[DEBUG]", name(logger.name), message)
 	}
 }
 
 func Info(logger *Logger, message string) {
 	if Level >= 1 {
-		fmt.Println(timestamp(), since(), "[INFO ]", name(), message)
+		fmt.Println(timestamp(), since(), "[INFO ]", name(logger.name), message)
 	}
 }
 
@@ -66,8 +66,8 @@ func Fatal(logger *Logger, message string) {
 	}
 }
 
-func name() string {
-	return "[" + Name + "]"
+func name(name string) string {
+	return "[" + name + "]"
 }
 
 func timestamp() string {
