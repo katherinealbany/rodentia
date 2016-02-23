@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	Level int
+	Level uint8
 	start time.Time
 )
 
@@ -37,6 +37,12 @@ func Warn(message string) {
 func Error(message string) {
 	if Level >= 3 {
 		fmt.Println(timestamp(), since(), "[ERROR]", message)
+	}
+}
+
+func Panic(message string) {
+	if Level >= 5 {
+		fmt.Println(timestamp(), since(), "[PANIC]", message)
 	}
 }
 
