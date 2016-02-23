@@ -7,6 +7,7 @@ import (
 
 func main() {
 	logger.Level = 6
+	logger.Name = "main"
 
 	time.Sleep(125 * time.Millisecond)
 	logger.Debug("debug message")

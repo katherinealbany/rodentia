@@ -9,7 +9,7 @@ import (
 
 var (
 	Level uint8
-	Name string
+	Name  string
 	start time.Time
 )
 
@@ -19,39 +19,43 @@ func init() {
 
 func Debug(message string) {
 	if Level >= 0 {
-		fmt.Println(timestamp(), since(), "[DEBUG]", message)
+		fmt.Println(timestamp(), since(), "[DEBUG]", name(), message)
 	}
 }
 
 func Info(message string) {
 	if Level >= 1 {
-		fmt.Println(timestamp(), since(), "[INFO ]", message)
+		fmt.Println(timestamp(), since(), "[INFO ]", name(), message)
 	}
 }
 
 func Warn(message string) {
 	if Level >= 2 {
-		fmt.Println(timestamp(), since(), "[WARN ]", message)
+		fmt.Println(timestamp(), since(), "[WARN ]", name(), message)
 	}
 }
 
 func Error(message string) {
 	if Level >= 3 {
-		fmt.Println(timestamp(), since(), "[ERROR]", message)
+		fmt.Println(timestamp(), since(), "[ERROR]", name(), message)
 	}
 }
 
 func Panic(message string) {
 	if Level >= 5 {
-		fmt.Println(timestamp(), since(), "[PANIC]", message)
+		fmt.Println(timestamp(), since(), "[PANIC]", name(), message)
 	}
 }
 
 func Fatal(message string) {
 	if Level >= 5 {
-		fmt.Println(timestamp(), since(), "[FATAL]", message)
+		fmt.Println(timestamp(), since(), "[FATAL]", name(), message)
 		os.Exit(1)
 	}
+}
+
+func name() string {
+	return "[" + Name + "]"
 }
 
 func timestamp() string {
