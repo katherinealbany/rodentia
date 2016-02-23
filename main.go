@@ -7,11 +7,6 @@ import (
 
 var log = logger.New("main")
 
-func init() {
-	logger.Level = 6
-	logger.Name = "main"
-}
-
 func main() {
 	logger.Info(log, "Begin")
 	mediation.Read()
