@@ -8,7 +8,7 @@ import (
 var log = logger.New("main")
 
 func main() {
-	logger.Info(log, "Begin")
+	log.Info(log, "Begin")
 	mediation.Read()
-	logger.Info(log, "End")
+	log.Info(log, "End")
 }

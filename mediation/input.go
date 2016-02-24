@@ -7,5 +7,5 @@ import (
 var log = logger.New("mediation")
 
 func Read() {
-	logger.Info(log, "Reading ...")
+	log.Info(log, "Reading ...")
 }
