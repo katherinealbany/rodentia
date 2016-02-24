@@ -31,7 +31,7 @@ func (Logger) Debug(logger *Logger, message string) {
 	}
 }
 
-func (Logger) Info(logger *Logger, message string) {
+func (logger *Logger) Info(message string) {
 	if logger.Level >= 1 {
 		fmt.Println(timestamp(), since(), "[INFO ]", name(logger.Name), message)
 	}
