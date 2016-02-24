@@ -25,7 +25,7 @@ func New(name string) *Logger {
 	}
 }
 
-func (Logger) Debug(logger *Logger, message string) {
+func (logger *Logger) Debug(message string) {
 	if logger.Level >= 0 {
 		fmt.Println(timestamp(), since(), "[DEBUG]", name(logger.Name), message)
 	}
@@ -37,25 +37,25 @@ func (logger *Logger) Info(message string) {
 	}
 }
 
-func (Logger) Warn(logger *Logger, message string) {
+func (logger *Logger) Warn(message string) {
 	if logger.Level >= 2 {
 		fmt.Println(timestamp(), since(), "[WARN ]", name(logger.Name), message)
 	}
 }
 
-func (Logger) Error(logger *Logger, message string) {
+func (logger *Logger) Error(message string) {
 	if logger.Level >= 3 {
 		fmt.Println(timestamp(), since(), "[ERROR]", name(logger.Name), message)
 	}
 }
 
-func (Logger) Panic(logger *Logger, message string) {
+func (logger *Logger) Panic(message string) {
 	if logger.Level >= 5 {
 		fmt.Println(timestamp(), since(), "[PANIC]", name(logger.Name), message)
 	}
 }
 
-func (Logger) Fatal(logger *Logger, message string) {
+func (logger *Logger) Fatal(message string) {
 	if logger.Level >= 5 {
 		fmt.Println(timestamp(), since(), "[FATAL]", name(logger.Name), message)
 		os.Exit(1)
