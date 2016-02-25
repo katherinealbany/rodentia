@@ -10,15 +10,16 @@ import (
 var log = logger.New("mediation")
 
 func Read() {
+	var filename string = "./test.csv"
 	log.Info("Reading ...")
 
-	data, err := ioutil.ReadFile("./test.csv")
+	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Print(string(data))
 
-	file, err := os.Open("./test.csv")
+	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Println("error:", err)
 		// log.Fatal("error:" + err)
