@@ -49,9 +49,10 @@ func (logger *Logger) Error(message string) {
 	}
 }
 
-func (logger *Logger) Panic(message string) {
+func (logger *Logger) Panic(message string, err error) {
 	if logger.Level >= 5 {
 		fmt.Println(timestamp(), since(), "[PANIC]", name(logger.Name), message)
+		panic(err)
 	}
 }
 
