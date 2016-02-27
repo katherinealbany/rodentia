@@ -10,7 +10,7 @@ import (
 var log = logger.New("mediation")
 
 func Read() {
-	var filename string = "./test.csv1"
+	var filename string = "./test.csv"
 	log.Info("Reading", filename)
 
 	/*	data, err := ioutil.ReadFile(filename)
