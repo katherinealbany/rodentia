@@ -25,33 +25,33 @@ func New(name string) *Logger {
 	}
 }
 
-func (logger *Logger) Debug(message string) {
+func (logger *Logger) Debug(args ...interface{}) {
 	if logger.Level >= 0 {
-		fmt.Println(timestamp(), since(), "[DEBUG]", name(logger.Name), message)
+		fmt.Println(timestamp(), since(), "[DEBUG]", name(logger.Name), args)
 	}
 }
 
-func (logger *Logger) Info(message string) {
+func (logger *Logger) Info(args ...interface{}) {
 	if logger.Level >= 1 {
-		fmt.Println(timestamp(), since(), "[INFO ]", name(logger.Name), message)
+		fmt.Println(timestamp(), since(), "[INFO ]", name(logger.Name), args)
 	}
 }
 
-func (logger *Logger) Warn(message string) {
+func (logger *Logger) Warn(args ...interface{}) {
 	if logger.Level >= 2 {
-		fmt.Println(timestamp(), since(), "[WARN ]", name(logger.Name), message)
+		fmt.Println(timestamp(), since(), "[WARN ]", name(logger.Name), args)
 	}
 }
 
-func (logger *Logger) Error(message string) {
+func (logger *Logger) Error(args ...interface{}) {
 	if logger.Level >= 3 {
-		fmt.Println(timestamp(), since(), "[ERROR]", name(logger.Name), message)
+		fmt.Println(timestamp(), since(), "[ERROR]", name(logger.Name), args)
 	}
 }
 
-func (logger *Logger) Panic(message string, err error) {
+func (logger *Logger) Panic(err error, args ...interface{}) {
 	if logger.Level >= 5 {
-		fmt.Println(timestamp(), since(), "[PANIC]", name(logger.Name), message)
+		fmt.Println(timestamp(), since(), "[PANIC]", name(logger.Name), args)
 		panic(err)
 	}
 }

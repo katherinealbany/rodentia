@@ -11,7 +11,7 @@ var log = logger.New("mediation")
 
 func Read() {
 	var filename string = "./test.csv1"
-	log.Info("Reading [" + filename + "]")
+	log.Info("Reading", filename)
 
 	/*	data, err := ioutil.ReadFile(filename)
 		if err != nil {
