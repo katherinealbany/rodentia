@@ -56,9 +56,9 @@ func (logger *Logger) Panic(message string, err error) {
 	}
 }
 
-func (logger *Logger) Fatal(message string, err error) {
+func (logger *Logger) Fatal(args ...interface{}) {
 	if logger.Level >= 5 {
-		fmt.Println(timestamp(), since(), "[FATAL]", name(logger.Name), message, err)
+		fmt.Println(timestamp(), since(), "[FATAL]", name(logger.Name), args)
 		os.Exit(1)
 	}
 }

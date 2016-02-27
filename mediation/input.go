@@ -21,7 +21,7 @@ func Read() {
 
 	file, err := os.Open(filename)
 	if err != nil {
-		log.Fatal("error: ", err)
+		log.Fatal(err)
 	}
 	defer file.Close()
 }
