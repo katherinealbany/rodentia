@@ -1,27 +1,26 @@
 package mediation
 
 import (
-	// "fmt"
 	"github.com/katherinealbany/rodentia/logger"
-	// "io/ioutil"
 	"os"
 )
 
 var log = logger.New("mediation")
 
 func Read() {
-	var filename string = "./test.csv"
-	log.Info("Reading", filename)
-
-	/*	data, err := ioutil.ReadFile(filename)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Print(string(data))*/
+	var filename string = "test.csv"
 
 	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer file.Close()
+
+	log.Info("Reading", filename)
+	data := make([]byte, 10)
+	count, err := file.Read(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Info("Read ", count, " bytes")
 }
