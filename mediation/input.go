@@ -16,11 +16,18 @@ func Read() {
 	}
 	defer file.Close()
 
-	log.Info("Reading", filename)
 	data := make([]byte, 10)
+	log.Info("Reading", filename, "...")
+
 	count, err := file.Read(data)
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Info("Read ", count, " bytes")
+	log.Info("Read", count, "bytes", data)
+
+	count, err = file.Read(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Info("Read", count, "bytes", data)
 }
